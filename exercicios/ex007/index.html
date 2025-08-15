@@ -1,40 +1,103 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Somando Numeros</title>
     <style>
-        body, input {
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body,
+        input,
+        select {
             font: normal 18pt arial;
         }
+
         div {
             margin: 20px 0px;
         }
+
+        body {
+            background-color: gray;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 50vh;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        main {
+            background-color: white;
+            padding: 40px;
+            max-width: 600px;
+            border-radius: 15px;
+            display: flex;
+            flex-flow: column wrap;
+            justify-content: flex-end;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.486);
+        }
     </style>
 </head>
-<body>
-    <h1>Somando Valores</h1>
-    <div>
-        <label for="n1">Primeiro Numero:</label>
-        <input type="number" name="n1" id="n1">
-    </div>
-    <div>
-        <label for="n2">Segundo Numero:</label>
-        <input type="number" name="n2" id="n2">
-    </div>
-    <input type="button" value="Calcular" onclick="calcular()">
-    <div id="resultado">
 
-    </div>
+<body>
+    <main>
+        <h1>Somando Valores</h1>
+        <div>
+            <label for="n1">Primeiro Numero:</label>
+            <input type="number" name="n1" id="n1">
+        </div>
+        <div>
+            <label for="op">Operação:</label>
+            <select name="op" id="op">
+                <option value="soma">Soma</option>
+                <option value="sub">Subtração</option>
+                <option value="mult">Multiplicação</option>
+                <option value="div">Divisão</option>
+            </select>
+        </div>
+        <div>
+            <label for="n2">Segundo Numero:</label>
+            <input type="number" name="n2" id="n2">
+        </div>
+        <input type="button" value="Calcular" onclick="calcular()">
+        <div id="resultado">
+        </div>
+    </main>
 
     <script>
         function calcular() {
             var n1 = document.getElementById('n1').value;
             var n2 = document.getElementById('n2').value;
-            var soma = Number(n1) + Number(n2);
-            document.getElementById('resultado').innerHTML = "O resultado da soma é: <strong>" + soma + "</strong>";
+            var op = document.getElementById('op').value;
+            var resultado = document.getElementById('resultado');
+            var res;
+            switch (op) {
+                case 'soma':
+                    res = n1 + n2;
+                    break;
+                case 'sub':
+                    res = n1 - n2;
+                    break;
+                case 'mult':
+                    res = n1 * n2;
+                    break;
+                case 'div':
+                    res = n1 / n2;
+                    res = res.toFixed(2);
+                    break;
+            }
+            resultado.innerHTML = `O resultado da ${op} entre ${n1} e ${n2} é: <strong>${res}</strong>`;
+            // var soma = Number(n1) + Number(n2);
+            // document.getElementById('resultado').innerHTML = "O resultado da soma é: <strong>" + soma + "</strong>";
         }
     </script>
 </body>
+
 </html>
