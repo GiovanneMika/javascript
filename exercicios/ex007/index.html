@@ -43,12 +43,29 @@
             justify-content: flex-end;
             box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.486);
         }
+
+        @media (max-width: 400px) {
+
+            body,
+            input,
+            select {
+                font: normal 8pt arial;
+            }
+
+            main {
+                width: 80vw;
+                padding: 10px;
+            }
+            div {
+                margin: 12px 0px;
+            }
+        }
     </style>
 </head>
 
 <body>
     <main>
-        <h1>Somando Valores</h1>
+        <h1>Calculando Valores</h1>
         <div>
             <label for="n1">Primeiro Numero:</label>
             <input type="number" name="n1" id="n1">
