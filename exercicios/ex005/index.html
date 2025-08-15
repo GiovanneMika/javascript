@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Primeiros passos com DOM</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            color: white;
+            background-color: rgb(93, 122, 177);
+            font-size: 18pt;
+        }
+
+        div:hover {
+            cursor: pointer;
+            color: yellow;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Iniciando estudos com DOM</h1>
+    <p>Aqui vai o resultado</p>
+    <p>Aprendendo a usar o <strong>DOM</strong> em JavaScript</p>
+    <div id="clique">Clique em mim!</div>
+    <script>
+        p1 = document.getElementsByName('p')[0];
+     //   div = document.getElementById('clique');
+        div = document.querySelector('div#clique');
+        div.style.background = 'green';
+        div.innerText = "Estou aguardando";
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Primeiros passos com DOM</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            color: white;
+            background-color: rgb(93, 122, 177);
+            font-size: 18pt;
+        }
+
+        div:hover {
+            cursor: pointer;
+            color: yellow;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Iniciando estudos com DOM</h1>
+    <p>O DOM (Document Object Model) é uma interface de programação que permite a manipulação de documentos HTML e XML.
+        Com o DOM, é possível acessar e modificar o conteúdo, a estrutura e o estilo de uma página da web de forma
+        dinâmica.</p>
+    <div onclick="mudaCor()">Clique em mim!</div>
+    <script>
+        window.document.write("Salve salve");
+
+        function luminance(r, g, b) {
+            var a = [r, g, b].map(function (v) {
+                v /= 255;
+                return v <= 0.03928
+                    ? v / 12.92
+                    : Math.pow((v + 0.055) / 1.055, 2.4);
+            });
+            return a[0] * 0.2126 + a[1] * 0.7152 + a[2] * 0.0722;
+        }
+
+        function mudaCor() {
+            r = Math.floor(Math.random() * 256);
+            g = Math.floor(Math.random() * 256);
+            b = Math.floor(Math.random() * 256);
+
+            luminancia = luminance(r, g, b);
+            luminancia > 0.5 ? document.body.style.color = "black" : document.body.style.color = "white";
+            // if (luminancia > 0.5) {
+            //     document.body.style.color = "black";
+            // } else {
+            //     document.body.style.color = "white";
+            // }
+            document.body.style.backgroundColor = "rgb(" + r + ", " + g + ", " + b + ")";
+        }
+    </script>
+</body>
+
+</html>

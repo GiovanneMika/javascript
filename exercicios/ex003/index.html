@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Primeiras Interações</title>
+</head>
+<body>
+    <h1>Primeiros Comandos com dados</h1>
+    <script>
+        var n1 = window.prompt("Digite um número");
+        var n2 = window.prompt("Digite outro número");
+        var soma = Number(n1) + Number(n2);
+        // window.alert(`A soma é ${Number(n1) + Number(n2)}`);
+        window.alert("A soma dos dois números (" + n1 + " e " + n2 + ") é " + soma + "!");
+        window.alert(`A soma entre ${n1} e ${n2} é ${soma}!`); // com template literals (interpolação)
+    </script>
+</body>
+</html>
