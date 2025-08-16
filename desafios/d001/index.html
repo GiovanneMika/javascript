@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mensagens</title>
+    <style>
+        body,
+        input {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 16pt;
+        }
+
+        input {
+            padding: 15px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Desafio das Mensagens</h1>
+    <input type="button" value="Botão 1" onclick="mostrarMensagem('b1')">
+    <input type="button" value="Botão 2" onclick="mostrarMensagem('b2')">
+    <input type="button" value="Botão 3" onclick="mostrarMensagem('b3')">
+
+    <script>
+        function mostrarMensagem(botao) {
+            switch (botao) {
+                case 'b1':
+                    window.alert("Você clicou no 1° botão!")
+                    break;
+                case 'b2':
+                    window.alert("Você clicou no 2° botão!")
+                    break;
+                case 'b3':
+                    window.alert("Você clicou no 3° botão!")
+                    break;
+            }
+        }
+    </script>
+</body>
+
+</html>

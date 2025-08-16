@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Somando Numeros</title>
+    <title>Calculando Numeros</title>
     <style>
         * {
             margin: 0;
@@ -56,6 +56,7 @@
                 width: 80vw;
                 padding: 10px;
             }
+
             div {
                 margin: 12px 0px;
             }
@@ -68,7 +69,7 @@
         <h1>Calculando Valores</h1>
         <div>
             <label for="n1">Primeiro Numero:</label>
-            <input type="number" name="n1" id="n1">
+            <input type="number" name="n1" id="n1" required>
         </div>
         <div>
             <label for="op">Operação:</label>
@@ -81,7 +82,7 @@
         </div>
         <div>
             <label for="n2">Segundo Numero:</label>
-            <input type="number" name="n2" id="n2">
+            <input type="number" name="n2" id="n2" required>
         </div>
         <input type="button" value="Calcular" onclick="calcular()">
         <div id="resultado">
@@ -90,8 +91,8 @@
 
     <script>
         function calcular() {
-            var n1 = document.getElementById('n1').value;
-            var n2 = document.getElementById('n2').value;
+            var n1 = Number(document.getElementById('n1').value);
+            var n2 = Number(document.getElementById('n2').value);
             var op = document.getElementById('op').value;
             var resultado = document.getElementById('resultado');
             var res;
@@ -106,11 +107,19 @@
                     res = n1 * n2;
                     break;
                 case 'div':
-                    res = n1 / n2;
-                    res = res.toFixed(2);
+                    if (n2 !== 0) {
+                        res = n1 / n2;
+                        res = res.toFixed(2);
+                    } else {
+                        res = "Erro";
+                    }
                     break;
             }
-            resultado.innerHTML = `O resultado da ${op} entre ${n1} e ${n2} é: <strong>${res}</strong>`;
+            if (document.getElementById('n1').value != "" && document.getElementById('n2').value != "") {
+                resultado.innerHTML = op == 'div' && n2 == 0 ? `Não se pode dividir por zero!` : `O resultado da ${op} entre ${n1} e ${n2} é: <strong>${res}</strong>`;
+            } else {
+                window.alert("Preencha os dois campos com números!");
+            }
             // var soma = Number(n1) + Number(n2);
             // document.getElementById('resultado').innerHTML = "O resultado da soma é: <strong>" + soma + "</strong>";
         }
