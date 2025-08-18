@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conversor de Medidas</title>
+    <style>
+        body,
+        input {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 18pt;
+        }
+
+        input {
+            padding: 20px;
+        }
+
+        @media (max-width: 400px) {
+
+            body,
+            input,
+            select {
+                font: normal 8pt arial;
+            }
+
+            div {
+                margin: 12px 0px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Conversor de Medidas</h1>
+    <input type="button" value="Converter" onclick="converterMedida()">
+    <p>Clique no botão acima para começar</p>
+    <div id="resultado">
+
+    </div>
+    <script>
+        function converterMedida() {
+            var medidas = ["quilômetros (Km)", "hectômetros (Hm)", "decâmetros (Dam)", "decímetros (dm)", "centímetros (cm)", "milímetros (mm)"];
+            var distancia = Number(prompt("Digite uma distância em metros (m)"));
+            var res = document.getElementById("resultado");
+            var divisor = 0.001;
+            var conversao;
+            var c = 0;
+            res.innerHTML = `<h2>A distância de ${distancia} metros, corresponde a...</h2>`;
+            while (c <= 5) {
+                conversao = distancia * divisor;
+                if (divisor != 1) {
+                    res.innerHTML += `${Intl.NumberFormat('pt-BR').format(conversao)} ${medidas[c]} </br>`;
+                    c++;
+                }
+                divisor *= 10;
+            }
+        }
+    </script>
+</body>
+
+</html>
