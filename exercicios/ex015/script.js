@@ -1,9 +1,10 @@
+
+var ano = new Date().getFullYear();
 function verificarIdade() {
     var idade = Number(document.getElementById("idade").value);
     var sexo = document.getElementById("sexom").checked ? "homem" : "mulher";
     var msg = document.getElementById("msg");
     var img = document.getElementById("img");
-    var ano = new Date().getFullYear();
 
     if (idade > ano || idade < 1900) {
         window.alert("Insira uma idade válida!");
@@ -34,4 +35,13 @@ function verificarIdade() {
             }
         }
     }
+}
+
+function aleatorizar() {
+    var idade = document.getElementById("idade");
+    var idadeAleatoria = Math.floor(Math.random() * (ano - 1900)) + 1900;
+    idade.value = idadeAleatoria;
+    var sexoAleatorio = Math.floor(Math.random() * 2);
+    document.getElementsByName("sexo")[sexoAleatorio].checked = true;
+    verificarIdade();
 }
