@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hora do Dia</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <h1>Hora do Dia</h1>
+    <main>
+        <p>
+            <label for="idade">Ano de Nascimento: </label>
+            <input type="number" name="idade" id="idade" min="1900" max="2025">
+        </p>
+        <p>
+            Sexo:
+            <input type="radio" name="sexo" id="sexom" checked>
+            <label for="sexom">Masculino</label>
+            <input type="radio" name="sexo" id="sexof">
+            <label for="sexof">Feminino</label>
+        </p>
+        <input type="button" value="Verificar" onclick="verificarIdade()">
+        <div id="msg">
+            <p>Preencha os dados acima para ver o resultado!</p>
+        </div>
+        <div id="img">
+
+        </div>
+    </main>
+    <footer>
+        <p>Made by <a href="https://github.com/GiovanneMika" target="_blank">GiovanneMika</a></p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+
+</html>
