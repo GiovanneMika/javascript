@@ -41,10 +41,11 @@
      font: normal 16pt Arial;
      margin-bottom: 20px;
  }
- 
- div#msg, div#img {
-    text-align: center;
+
+ div#msg {
+    font: normal 16pt Arial;
  }
+ 
 
  body h1 {
      color: white;
