@@ -7,6 +7,7 @@ function gerarTabuada() {
         while (c <= 10){
             var opcao = document.createElement('option');
             opcao.textContent = `${numero} x ${c} = ${c*numero}`;
+            opcao.value = `tab${c}`;
             resultado.appendChild(opcao);
             c++;
         }
