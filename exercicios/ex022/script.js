@@ -22,6 +22,7 @@ function adicionar() {
     lista.length > 6 && lista.length < 14 ? quadro.setAttribute("size", lista.length) : "";
     numeroElem.value = "";
     mensagem.innerHTML = "";
+    setTimeout(numeroElem.focus(), 200);
 }
 
 function finalizar() {
